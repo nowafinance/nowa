@@ -31,16 +31,21 @@ var (
 	// chainID is used in EIP-712 tests.
 	chainID = uint64(constants.ExampleEIP155ChainID)
 
-	ctx = client.Context{}.WithTxConfig(
-		encoding.MakeConfig(chainID).TxConfig,
-	)
+	ctx client.Context
 
 	// feePayerAddress is the address of the fee payer used in EIP-712 tests.
 	feePayerAddress = fmt.Sprintf(
-		"%s17xpfvakm2amg962yls6f84z3kell8c5lserqta",
+		"%s17xpfvakm2amg962yls6f84z3kell8c5lnyhvnj",
 		constants.ExampleBech32Prefix,
 	)
 )
+
+func init() {
+	sdk.GetConfig().SetBech32PrefixForAccount(constants.ExampleBech32Prefix, "")
+	ctx = client.Context{}.WithTxConfig(
+		encoding.MakeConfig(chainID).TxConfig,
+	)
+}
 
 type TestCaseStruct struct {
 	txBuilder              client.TxBuilder
@@ -53,8 +58,6 @@ type TestCaseStruct struct {
 }
 
 func TestLedgerPreprocessing(t *testing.T) {
-	// Update bech32 prefix
-	sdk.GetConfig().SetBech32PrefixForAccount(constants.ExampleBech32Prefix, "")
 	evmConfigurator := evmtypes.NewEVMConfigurator().
 		WithEVMCoinInfo(constants.ExampleChainCoinInfo[constants.ExampleChainID])
 	err := evmConfigurator.Configure()
