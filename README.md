@@ -1,19 +1,19 @@
 <img
-src="repo_header.svg"
-alt="Cosmos EVM - A plug-and-play solution that adds EVM compatibility and customizability to your chain"
+src="nowa_banner.png"
+alt="Nowa - The Verifiable Trading Layer"
 />
 
-**Please note**: This repo is undergoing changes while the code is being audited and tested. For the time being we will
-be making v0.x releases. Some breaking changes might occur. Cosmos Labs will only mark the Cosmos EVM repository as stable with a v1
-release after the audit, key stability features and benchmarking are completed.
+**Please note**: This repo is actively under development for the Nowa chain. Some breaking changes might occur as we iterate.
 
-**Visit the official documentation for Cosmos EVM**: [evm.cosmos.network](https://evm.cosmos.network/)
+**Visit the official documentation for Nowa**: [nowa.gitbook.io/nowa-protocol](https://nowa.gitbook.io/nowa-protocol)
 
-## What is Cosmos EVM?
+## What is Nowa?
 
-Cosmos EVM is a plug-and-play solution that adds EVM compatibility and customizability to your Cosmos SDK chain. Cosmos EVM equips Cosmos chains with complete Ethereum capabilities: Solidity smart contracts, Ethereum JSON-RPC, native support for the EVM wallet/token/user experience, and access to the entire Ethereum developer ecosystem. Its precompiles and extensions allow developers to leverage modules like [IBC](https://github.com/cosmos/ibc-go) with EVM and get native ERC-20 support for tokens on Cosmos. 
+**Nowa** is The Verifiable Trading Layer. It empowers developers to build spot or finance up to 10x with BNPL, backed by ZK-verified settlement and fast finality.
 
-Cosmos EVM is customizable for your business use case, chain architecture, and performance needs.
+Under the hood, the Nowa chain is powerfully built on top of **Cosmos EVM**. This equips Nowa with complete Ethereum capabilities: Solidity smart contracts, Ethereum JSON-RPC, native support for the EVM wallet/token/user experience, and access to the entire Ethereum developer ecosystem. Its precompiles and extensions allow developers to leverage modules like [IBC](https://github.com/cosmos/ibc-go) with EVM and get native ERC-20 support for tokens. 
+
+By leveraging the core architecture of Cosmos EVM, Nowa is customizable for our specific business use case and high-performance trading needs.
 
 
 ## Integration
@@ -129,7 +129,7 @@ We would like to thank our key contributors at [B-Harvest](https://bharvest.io/)
 ## Documentation and Resources
 
 ### Documentation
-Visit the official documentation for Cosmos EVM: [evm.cosmos.network](https://evm.cosmos.network/)
+Visit the official documentation for Nowa: [nowa.gitbook.io/nowa-protocol](https://nowa.gitbook.io/nowa-protocol)
 
 ### Cosmos Stack Libraries
 
