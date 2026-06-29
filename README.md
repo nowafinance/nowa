@@ -5,7 +5,10 @@ alt="Nowa - The Verifiable Trading Layer"
 
 **Please note**: This repo is actively under development for the Nowa chain. Some breaking changes might occur as we iterate.
 
-**Visit the official documentation for Nowa**: [nowa.gitbook.io/nowa-protocol](https://nowa.gitbook.io/nowa-protocol)
+**Official Resources for Nowa**:
+- 🌐 **Website**: [nowa.finance](https://nowa.finance)
+- 📚 **Documentation**: [nowa.gitbook.io/nowa-protocol](https://nowa.gitbook.io/nowa-protocol)
+- 📄 **Whitepaper**: [Read Here](https://docs.google.com/document/d/1svqWjzACBFw8_V5f77FlFqt33HxVT_It/edit?usp=sharing&ouid=105640413471049881361&rtpof=true&sd=true)
 
 ## What is Nowa?
 
