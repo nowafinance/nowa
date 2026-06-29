@@ -35,29 +35,16 @@ OUTPUT=$(cast send \
 	--chain-id "$CHAIN_ID" \
 	--json 2>&1 || true)
 
-# 2) Try parse JSON
-JSON=$(echo "$OUTPUT" | sed -n 's/.*\({.*\)/\1/p')
-
-if [ -n "$JSON" ]; then
-	# 3a) JSON returned -> parse error field
-	echo "$JSON" | jq -r '
-    if has("error") then
-      "✅ Transaction reverted as expected:\n  " + .error.message
-    else
-      "❌ Expected a revert, but transaction succeeded:\n" + (.|tojson)
-    end'
+# 2) Check for expected errors directly in the text output
+if echo "$OUTPUT" | grep -q -e 'execution reverted' -e 'ERC20InsufficientBalance'; then
+	echo "✅ Transaction reverted as expected"
+	echo
+	echo "Revert detail:"
+	# Extract everything after the first sign of an error
+	echo "$OUTPUT" | sed -n 's/.*\(Error:.*\)/\1/p'
 else
-	# 3b) No JSON -> fallback to raw text check
-	if echo "$OUTPUT" | grep -q -e 'execution reverted' -e 'ERC20InsufficientBalance'; then
-		echo "✅ Transaction reverted as expected"
-		echo
-		echo "Revert detail:"
-		# Newline before 'Error:'
-		echo "$OUTPUT" | sed -n 's/.*\(Error:.*\)/\1/p'
-	else
-		echo "❌ Unexpected response (no JSON, no revert message):"
-		echo
-		echo "$OUTPUT"
-		exit 1
-	fi
+	echo "❌ Unexpected response (no revert message detected):"
+	echo
+	echo "$OUTPUT"
+	exit 1
 fi
