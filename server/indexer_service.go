@@ -97,6 +97,7 @@ func (eis *EVMIndexerService) OnStart() error {
 			case <-newBlockSignal:
 			case <-time.After(NewBlockWaitTimeout):
 			}
+			blockErr = nil
 			continue
 		}
 		for i := lastBlock + 1; i <= latestBlock; i++ {
@@ -105,14 +106,26 @@ func (eis *EVMIndexerService) OnStart() error {
 				blockResult *coretypes.ResultBlockResults
 			)
 
-			block, blockErr = eis.client.Block(ctx, &i)
-			if blockErr != nil {
-				eis.Logger.Error("failed to fetch block", "height", i, "err", blockErr)
+			retryCount := 5
+			retryInterval := 100 * time.Millisecond
+
+			for r := 0; r < retryCount; r++ {
+				block, blockErr = eis.client.Block(ctx, &i)
+				if blockErr != nil {
+					time.Sleep(retryInterval)
+					continue
+				}
+				blockResult, blockErr = eis.client.BlockResults(ctx, &i)
+				if blockErr != nil {
+					time.Sleep(retryInterval)
+					continue
+				}
+				// successfully fetched both
 				break
 			}
-			blockResult, blockErr = eis.client.BlockResults(ctx, &i)
+
 			if blockErr != nil {
-				eis.Logger.Error("failed to fetch block result", "height", i, "err", blockErr)
+				eis.Logger.Error("failed to fetch block or block result after retries", "height", i, "err", blockErr)
 				break
 			}
 			if err := eis.txIdxr.IndexBlock(block.Block, blockResult.TxsResults); err != nil {
