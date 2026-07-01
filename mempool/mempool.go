@@ -418,6 +418,9 @@ func (m *ExperimentalEVMMempool) HasEventBus() bool {
 
 // Close unsubscribes from the CometBFT event bus and shuts down the mempool.
 func (m *ExperimentalEVMMempool) Close() error {
+	if m == nil {
+		return nil
+	}
 	var errs []error
 	if m.eventBus != nil {
 		if err := m.eventBus.Unsubscribe(context.Background(), SubscriberName, stream.NewBlockHeaderEvents); err != nil {

@@ -386,10 +386,8 @@ test-system: build-v04 build
 
 build-v04:
 	mkdir -p ./tests/systemtests/binaries/v0.4
-	git checkout v0.4.1
 	make build
-	cp $(BUILDDIR)/evmd ./tests/systemtests/binaries/v0.4
-	git checkout -
+	cp $(BUILDDIR)/$(EXAMPLE_BINARY) ./tests/systemtests/binaries/v0.4
 
 mocks:
 	@echo "--> generating mocks"
