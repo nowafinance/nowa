@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -x
 
-BINARY=/evmd/${BINARY:-evmd}
+BINARY=/evmd/${BINARY:-nowad}
 ID=${ID:-0}
 LOG=${LOG:-evmd.log}
 
