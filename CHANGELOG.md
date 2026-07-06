@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## v0.0.2
+
+### IMPROVEMENTS
+
+- Simplify test-unit-cover to avoid triple test execution
+- Remove obsolete `version` field from jsonrpc docker-compose.yml
+
+## v0.0.1
+
+### FEATURES
+
+- Initial Alpha Release of Nowa Protocol
+
+---
+<!-- Upstream cosmos/evm history below -->
+
 ## v0.5.1
 
 ### DEPENDENCIES
