@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   evmd:
     container_name: evmd-compat-test
