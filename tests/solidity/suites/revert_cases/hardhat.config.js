@@ -16,7 +16,7 @@ module.exports = {
   networks: {
     cosmos: {
       url: "http://127.0.0.1:8545",
-      chainId: 262144,
+      chainId: 22052010,
       gasPrice: 1000000000,
       accounts: [
         "0x88CBEAD91AEE890D27BF06E003ADE3D4E952427E88F88D31D61D3EF5E5D54305",

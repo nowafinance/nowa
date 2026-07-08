@@ -9,7 +9,7 @@ const { expect } = require("chai");
 const tokenArtifact = require("./contractABI/TokenExample.json");
 
 require("dotenv").config();
-const chainId = process.env.CHAIN_ID || 262144; // Default to 262144 if not set
+const chainId = process.env.CHAIN_ID || 22052010; // Default to 22052010 if not set
 
 describe("Viem Full Feature Test", function () {
   let publicClient,
@@ -118,7 +118,7 @@ describe("Viem Full Feature Test", function () {
     const Txreceipt1 = await publicClient.waitForTransactionReceipt({
       hash: txHash1,
     });
-    
+
     // Get logs with block range to ensure we capture the recent transaction
     const logs = await publicClient.getLogs({
       abi: tokenArtifact.abi,
