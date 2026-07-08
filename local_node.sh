@@ -1,4 +1,5 @@
 #!/bin/bash
+make install 
 
 CHAINID="${CHAIN_ID:-9001}"
 MONIKER="localtestnet"
