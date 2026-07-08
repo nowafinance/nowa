@@ -12,9 +12,9 @@ module.exports = {
       },
     }
   },
-  networks:{
-    localhost:{
-      url:"http://127.0.0.1:8545"
+  networks: {
+    localhost: {
+      url: "http://127.0.0.1:8545"
     }
   },
   namedAccounts: {
@@ -29,7 +29,7 @@ module.exports = {
     customChains: [
       {
         network: "localhost",
-        chainId: 262144,
+        chainId: 22052010,
         urls: {
           apiURL: "http://localhost/api",
           browserURL: "http://localhost"

@@ -24,7 +24,7 @@ var (
 	// DefaultEVMDisplayDenom is the default value for the display denom in the bank metadata
 	DefaultEVMDisplayDenom = "atom"
 	// DefaultEVMChainID is the default value for the evm chain ID
-	DefaultEVMChainID uint64 = 262144
+	DefaultEVMChainID uint64 = 22052010
 	// DefaultEVMDecimals is the default value for the evm denom decimal precision
 	DefaultEVMDecimals uint64 = 18
 	// DefaultStaticPrecompiles defines the default active precompiles.
