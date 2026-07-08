@@ -1,6 +1,16 @@
 # CHANGELOG
 
+## v0.0.3
+
+### IMPROVEMENTS
+
+- Changed default blockchain ID to `22052010` (decimal)
+
 ## v0.0.2
+
+### FEATURES
+
+- Add unit tests and upgrade upgrade-helper for EIP-7702 implementation
 
 ### IMPROVEMENTS
 
